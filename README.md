@@ -1,0 +1,4 @@
+puppet-enc
+==========
+
+Puppet ENC
