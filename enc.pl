@@ -47,9 +47,8 @@ foreach ( @searchorder) {
 sub load_include
 {
 	my $include=shift;
-	foreach ( keys(%{$include} )) {
+	foreach ( @{$include} ) {
 		my $included_file_content;
-		next unless $include->{$_} eq 'true' ;
  		my $base_filename="$yamldir/include/$_.yaml";
 		foreach ( @searchlist ) {
 			my $fn=$base_filename . '.'. $_;
