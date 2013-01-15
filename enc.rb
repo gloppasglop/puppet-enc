@@ -31,9 +31,9 @@ searchorder=%w/ name
 
 $searchlist = []
 
-searchorder.each { |key|
+searchorder.each do |key|
         $searchlist << key == 'default' ? 'default' : node["attributes"][key]
-}
+end
 
 
 include = node["include"]
@@ -58,9 +58,9 @@ def load_include(include)
                         if section == "include" then
                                 load_include(included_file_content[section])
                         else
-                                included_file_content[section].each { |key,value|
+                                included_file_content[section].each do |key,value|
                                         $manifest[section][key]=included_file_content[section][key]
-                                }
+                               end 
                         end
                 end
 
