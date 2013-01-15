@@ -39,10 +39,10 @@ searchorder.each { |key|
 include = node["include"]
 
 def load_include(include)
-        include.each { |name|
+        include.each do |name|
                 base_filename = "#{$yamldir}/include/#{name}.yaml";
                 included_file_content = nil
-                $searchlist.each { |suffix|
+                $searchlist.each do |suffix|
                         fn = "#{base_filename}.#{suffix}"
                         if File.file?(fn) then
                                 parsed = begin
@@ -52,7 +52,7 @@ def load_include(include)
                                 end
                                 break
                         end
-                }
+                end 
                 for section in %w/classes parameters environment include/
                         next if included_file_content[section].nil?
                         if section == "include" then
@@ -64,7 +64,7 @@ def load_include(include)
                         end
                 end
 
-        }
+       end 
 end
 
 load_include(include);
